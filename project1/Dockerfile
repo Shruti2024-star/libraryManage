@@ -1,15 +1,17 @@
-# Use Java 21 base image
+# Use Java 21
 FROM eclipse-temurin:21-jdk-alpine
 
-# Set a working directory
+# Set working directory
 WORKDIR /app
 
-# Copy the project jar (after build)
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
+# Copy everything into container
+COPY . /app
 
-# Expose the default Spring Boot port
+# Build jar inside Docker
+RUN ./mvnw clean package -DskipTests
+
+# Expose Spring Boot port
 EXPOSE 8080
 
-# Run the jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+# Run jar
+ENTRYPOINT ["java","-jar","/app/target/project1-0.0.1-SNAPSHOT.jar"]

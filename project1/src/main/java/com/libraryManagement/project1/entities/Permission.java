@@ -1,0 +1,35 @@
+package com.libraryManagement.project1.entities;
+
+public enum Permission {
+
+    // BOOK
+    BOOK_CREATE,
+    BOOK_UPDATE,
+    BOOK_DELETE,
+    BOOK_VIEW,
+    BOOK_SEARCH,
+    BOOK_VIEWALL,
+
+    // CATEGORY
+    CATEGORY_CREATE,
+    CATEGORY_UPDATE,
+    CATEGORY_DELETE,
+    CATEGORY_VIEW,
+    CATEGORY_VIEWALL,
+
+    // ISSUE
+    BOOK_ISSUE,
+    BOOK_RETURN,
+    ISSUE_VIEW_ACTIVE,
+    ISSUE_VIEW_HISTORY,
+    ISSUE_VIEWALL,
+
+    // RESERVATION
+    RESERVATION_CREATE,
+    RESERVATION_CANCEL,
+    RESERVATION_VIEW,
+    RESERVATION_VIEWALL,
+
+    // USER
+      USER_ALLUSERS
+}

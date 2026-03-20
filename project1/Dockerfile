@@ -4,16 +4,16 @@ FROM eclipse-temurin:21-jdk-alpine
 # Set working directory
 WORKDIR /app
 
-# Copy everything into container
+# Copy project files
 COPY . /app
 
-# Give execute permission to Maven wrapper
+# Make Maven wrapper executable
 RUN chmod +x mvnw
 
-# Build the jar inside Docker
+# Build the Spring Boot jar inside Docker
 RUN ./mvnw clean package -DskipTests
 
-# Expose port
+# Expose default Spring Boot port
 EXPOSE 8080
 
 # Run the jar

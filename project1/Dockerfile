@@ -7,11 +7,14 @@ WORKDIR /app
 # Copy everything into container
 COPY . /app
 
-# Build jar inside Docker
+# Give execute permission to Maven wrapper
+RUN chmod +x mvnw
+
+# Build the jar inside Docker
 RUN ./mvnw clean package -DskipTests
 
-# Expose Spring Boot port
+# Expose port
 EXPOSE 8080
 
-# Run jar
+# Run the jar
 ENTRYPOINT ["java","-jar","/app/target/project1-0.0.1-SNAPSHOT.jar"]

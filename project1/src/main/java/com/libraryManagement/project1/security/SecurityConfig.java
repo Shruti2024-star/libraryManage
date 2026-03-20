@@ -82,19 +82,19 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
     }
     
-    
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
 
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(List.of("https://library-frontend-mi7calch1-shrutis-projects-0dfe08cb.vercel.app/"));
+        // Remove the trailing slash
+        configuration.setAllowedOrigins(List.of("https://library-frontend-mi7calch1-shrutis-projects-0dfe08cb.vercel.app"));
+        
         configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-
         source.registerCorsConfiguration("/**", configuration);
 
         return source;

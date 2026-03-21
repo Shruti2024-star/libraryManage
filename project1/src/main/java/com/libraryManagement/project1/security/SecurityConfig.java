@@ -2,6 +2,7 @@ package com.libraryManagement.project1.security;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +20,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import com.libraryManagement.project1.security.OAuth2UserService;
+
 
 @Configuration
 @EnableWebSecurity
@@ -88,7 +89,7 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         // Remove the trailing slash
-        configuration.setAllowedOrigins(List.of("https://library-frontend-mi7calch1-shrutis-projects-0dfe08cb.vercel.app"));
+        configuration.setAllowedOrigins(List.of("https://*.vercel.app"));
         
         configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));

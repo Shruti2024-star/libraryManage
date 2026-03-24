@@ -89,7 +89,7 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         // Remove the trailing slash
-        configuration.setAllowedOrigins(List.of("https://library-frontend-zeta-nine.vercel.app/"));
+        configuration.setAllowedOrigins(List.of("https://library-frontend-zeta-nine.vercel.app"));
  
         
         configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));

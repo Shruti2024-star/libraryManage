@@ -21,17 +21,15 @@ public class JwtFilter extends OncePerRequestFilter {
 
     @Autowired
     private CustomUserDetailsService userDetailsService;
-
     @Override
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain filterChain)
             throws ServletException, IOException {
 
+        // Skip auth for signup/login
         String path = request.getServletPath();
-
-        // Skip JWT check for public endpoints
-        if (path.startsWith("/auth/")) {
+        if (path.startsWith("/auth/")) { // adjust this to match your signup/login URL
             filterChain.doFilter(request, response);
             return;
         }
@@ -64,6 +62,7 @@ public class JwtFilter extends OncePerRequestFilter {
                 }
             }
         } catch (io.jsonwebtoken.ExpiredJwtException e) {
+            // Token expired or invalid — respond with 401
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.getWriter().write("Token expired, please login again");
             return;

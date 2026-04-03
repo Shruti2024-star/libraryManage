@@ -121,6 +121,10 @@ public class ReservationService {
         if (pendingReservations.isEmpty()) {
             return;
         }
+        
+        if (book.getAvailableCopies() <= 0) {
+            return; // no copies available, stop processing
+        }
 
         // ISSUE BOOK TO FIRST RESERVATION
         Reservation first = pendingReservations.get(0);

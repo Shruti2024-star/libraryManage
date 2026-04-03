@@ -1,4 +1,4 @@
-packpackage com.libraryManagement.project1.security;
+package com.libraryManagement.project1.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
